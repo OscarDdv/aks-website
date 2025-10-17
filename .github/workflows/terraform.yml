@@ -1,11 +1,13 @@
 name: terraform
 
 on:
+  workflow_dispatch:
+  workflow_call:
   push:
     paths:
       - 'terraform/**'
   workflow_dispatch:
-    
+
 jobs:
   terraform:
     name: Terraform
