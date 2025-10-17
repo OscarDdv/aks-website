@@ -14,10 +14,9 @@ env:
   IMAGE_TAG: latest
 
 jobs:
-    terraform:
+  terraform:
     uses: ./.github/workflows/terraform.yml
     secrets: inherit
-
   build-and-deploy:
     name: Build & Deploy App
     runs-on: ubuntu-latest
