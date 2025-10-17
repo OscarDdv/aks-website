@@ -11,13 +11,13 @@ resource "azurerm_container_registry" "acr" {
   admin_enabled       = false
 }
 
-resource "azurerm_log_analytics_workspace" "law" {
-  name                = "${var.resource_group_name}-law"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  sku                 = "PerGB2018"
-  retention_in_days   = 30
-}
+# resource "azurerm_log_analytics_workspace" "law" {
+#   name                = "${var.resource_group_name}-law"
+#   location            = azurerm_resource_group.rg.location
+#   resource_group_name = azurerm_resource_group.rg.name
+#   sku                 = "PerGB2018"
+#   retention_in_days   = 30
+# }
 
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.aks_name
@@ -35,16 +35,16 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type = "SystemAssigned"
   }
 
-  addon_profile {
-    oms_agent {
-      enabled                    = true
-      log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
-    }
-  }
+  # addon_profile {
+  #   oms_agent {
+  #     enabled                    = true
+  #     log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+  #   }
+  # }
 
-  role_based_access_control {
-    enabled = true
-  }
+  # role_based_access_control {
+  #   enabled = true
+  # }
 }
 
 ##AKS must be allowed to pull images from ACR.
