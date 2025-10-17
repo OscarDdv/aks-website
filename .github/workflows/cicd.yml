@@ -9,7 +9,7 @@ on:
 env:
   RESOURCE_GROUP: rg-terraform-aks-demo
   AKS_NAME: aks-demo-cluster
-  ACR_NAME: acrterraformdemo26039   # update to your ACR name
+  ACR_NAME: acrterraformdemo12345   # update to your ACR name
   IMAGE_NAME: aks-demo
   IMAGE_TAG: latest
 
